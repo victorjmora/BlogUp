@@ -39,7 +39,7 @@ const newFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.new-project-form')
+    .querySelector('.new-posts-form')
     .addEventListener('submit', newFormHandler);
   
   document
