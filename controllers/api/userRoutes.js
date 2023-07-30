@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create(req.body.userName);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { name: req.body.username } });
+    const userData = await User.findOne({ where: { name: req.body.email } });
 
     if (!userData) {
       res
