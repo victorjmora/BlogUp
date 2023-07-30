@@ -1,27 +1,12 @@
-// helpers.js
-const Handlebars = require('handlebars');
-
-// Register the 'formatDate' helper
-Handlebars.registerHelper('formatDate', function (date) {
-  return new Date(date).toLocaleString();
-});
-
-// Define the Handlebars helper
-Handlebars.registerHelper('isCurrentUserPostOwner', function(postUserId, loggedInUserId, options) {
-  if (postUserId && loggedInUserId && postUserId.toString() === loggedInUserId.toString()) {
-    return options.fn(this); // Render the content inside the block
+const withAuth = (req, res, next) => {
+  // Check if the user is logged in
+  if (!req.session.logged_in || !req.session.user.id) {
+    res.status(401).json({ message: 'Unauthorized' });
+    return;
   }
-  return ''; // Return an empty string if the condition is not met
-});
 
+  // User is logged in, proceed to the next middleware or route handler
+  next();
+};
 
-
-
-Handlebars.registerHelper('ifCond', function (v1, v2, options) {
-  if (v1 === v2) {
-    return options.fn(this);
-  }
-  return options.inverse(this);
-});
-
-module.exports = { Handlebars };
+module.exports = withAuth;
