@@ -7,6 +7,8 @@ const path = require('path');
 const sequelize = require('./config/connection');
 const { Handlebars } = require('./utils/helpers');
 const methodOverride = require('method-override');
+const Port = process.env.PORT || 3001;
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
