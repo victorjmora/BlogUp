@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Posts, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/create', withAuth, async (req, res) => {
+router.post('/posts', withAuth, async (req, res) => {
   try {
     await Posts.create({
       ...req.body,
@@ -11,7 +11,6 @@ router.post('/create', withAuth, async (req, res) => {
 
     res.redirect('/dashboard');
   } catch (err) {
-    console.log(err)
     res.status(400).json(err);
   }
 });
