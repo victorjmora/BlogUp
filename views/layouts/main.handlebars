@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
+  <title>The Blog of Blogs</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
@@ -12,7 +12,7 @@
 <body>
   <header class="header">
     <div class="container">
-      <h1 class="title has-text-centered">The Tech Blog</h1>
+      <h1 class="title has-text-centered">The Blog of Blogs</h1>
       {{#if logged_in}}
       <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -35,7 +35,7 @@
               </form>
             </div>
             <div class="navbar-item">
-              <form action="/api/users/logout" method="POST">
+              <form action="/api/user/logout" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="button is-danger">Logout</button>
               </form>
@@ -61,10 +61,10 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2023 The Tech Blog. All rights reserved.</p>
+      <p></p>
     </div>
   </footer>
 </body>
-
+<script><button type="submit" class="button is-danger">Logout</button></script>
 </html>
 
