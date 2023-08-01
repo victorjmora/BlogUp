@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const newpostsFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#post-name').value.trim();
@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/posts');
       } else {
         alert('Failed to create post');
       }
@@ -31,7 +31,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/posts');
       } else {
         alert('Failed to delete posts');
       }
@@ -40,7 +40,7 @@ const newFormHandler = async (event) => {
   
   document
     .querySelector('.new-posts-form')
-    .addEventListener('submit', newFormHandler);
+    .addEventListener('submit', newpostsFormHandler);
   
   document
     .querySelector('.posts-list')

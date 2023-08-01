@@ -11,6 +11,7 @@ router.post('/posts', withAuth, async (req, res) => {
 
     res.redirect('/dashboard');
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
